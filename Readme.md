@@ -3,7 +3,15 @@
 This project is built **entirely for practice purposes**, aiming to review and reinforce core programming concepts in Kotlin. It simulates a simple **banking system via the command line (CLI)** and is structured using clean design principles.
 
 ---
-
+### Login and Register Menu
+![First image](src/main/kotlin/images/first.png)
+### Bank Menu
+![Second image](src/main/kotlin/images/second.png)
+### Create Bank Account
+![Third image](src/main/kotlin/images/third.png)
+### Transaction Menu
+![Fourth image](src/main/kotlin/images/fourth.png)
+---
 ## 🎯 Project Purpose
 
 - ✅ **Practice Kotlin Basics**:  
