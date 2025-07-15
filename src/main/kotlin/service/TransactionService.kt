@@ -1,14 +1,13 @@
 package service
 
-import data.dao.AccountDao
+
 import data.dao.InMemoryAccountDao
 import data.dao.InMemoryTransactionDao
-import data.dao.TransactionDao
 import data.model.Transaction
 import data.model.TransactionType
 
 object TransactionService{
-    private val accountDao = InMemoryAccountDao()
+    private val accountDao = InMemoryAccountDao
 
     private val transactionDao = InMemoryTransactionDao()
 
@@ -31,6 +30,7 @@ object TransactionService{
         }catch (e: Exception){
             println("Error during deposit: ${e.message}")
         }
+
     }
 
     fun withdraw(accountId: Int , amount: Double){
@@ -90,7 +90,6 @@ object TransactionService{
                 amount = amount,
                 description = "Received from account $fromId"
             ))
-
             println("Transferred $amount from account $fromId to $toId successfully.")
         }catch (e: Exception){
             println("Error during transfer: ${e.message}")

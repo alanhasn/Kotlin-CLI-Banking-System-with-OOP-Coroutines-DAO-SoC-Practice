@@ -2,7 +2,7 @@ package data.dao
 
 import data.model.BankAccount
 
-class InMemoryAccountDao: AccountDao {
+object InMemoryAccountDao: AccountDao {
     private val accounts = mutableListOf<BankAccount>()
 
     override fun createAccount(account: BankAccount): Boolean {

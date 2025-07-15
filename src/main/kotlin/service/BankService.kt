@@ -5,14 +5,14 @@ import data.dao.InMemoryAccountDao
 import data.model.BankAccount
 
 object BankService{
-    private val accountDao: AccountDao = InMemoryAccountDao()
+    private val accountDao = InMemoryAccountDao
 
-    fun createAccount(userId:Int , balance: Double){
+    fun createAccount(userId:Int , balance: Double=0.0){
         try {
             val account = BankAccount(userId = userId , balance = balance)
             val success = accountDao.createAccount(account)
             if (success){
-                print("Account created successfully with ID: ${account.id}")
+                println("Account created successfully with ID: ${account.id}")
             }
             else{
                 println("Failed to create account.")

@@ -5,39 +5,44 @@ import data.model.User
 
 object UserService {
     private val savedUsers = InMemoryUserDao()
+    private var currentUser: User? = null
 
-    fun register(username: String , password: String){
-        try {
+    fun register(username: String , password: String): Result<User>{
+        return try {
             val user = User(0,username , password)
             val registeredUser = savedUsers.register(user)
-            if (registeredUser){
-                println("The User registered Successfully.")
+            if (registeredUser != null){
+                currentUser = registeredUser
+                Result.success(registeredUser)
+            } else {
+                Result.failure(Exception("The user with name $username already exists."))
             }
-            else{
-                println("the user with name $username is already existed. ")
-            }
-
-        }
-        catch (e: Exception){
-            println("Unexpected Error occur $e")
+        } catch (e: Exception){
+            Result.failure(Exception("An unexpected error occurred: ${e.message}"))
         }
     }
 
-    fun login(username: String , password: String){
-        try {
+    fun login(username: String , password: String): Result<User>{
+        return try {
             val loggedUser = savedUsers.login(username , password)
-
             if (loggedUser != null){
-                println("Hello $username welcome back")
+                currentUser = loggedUser
+                Result.success(loggedUser)
+            } else {
+                Result.failure(Exception("Invalid username or password."))
             }
-            else{
-                println("Invalid Username and password")
-            }
-
-        }catch (e: Exception){
-            println("Unexpected error occur $e")
+        } catch (e: Exception){
+            Result.failure(Exception("An unexpected error occurred: ${e.message}"))
         }
     }
+
+    fun logout(){
+        currentUser = null
+        println("Logged out successfully.")
+    }
+
+    fun getCurrentUser(): User? = currentUser
+
     fun getUserById(id: Int){
         try {
             val user=savedUsers.getUserById(id)

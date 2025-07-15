@@ -1,99 +1,81 @@
-# Kotlin build
+.gradle/
+build/
+
+# Ignore Gradle GUI config
+gradle-app.setting
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle/wrapper/gradle-wrapper.jar
+
+# Avoid ignoring Gradle wrapper properties file (.properties files are usually ignored)
+!gradle/wrapper/gradle-wrapper.properties
+
+# Cache of project
+.gradletasknamecache
+
+### IntelliJ ###
+# Covers .idea/ and any contents
+.idea/
+
+# User-specific stuff
+*.iws
+
+# Sensitive or machine-specific IntelliJ files
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/datasources.xml
+.idea/dataSources.ids
+.idea/dataSources.local.xml
+.idea/sqlDataSources.xml
+.idea/dynamic.xml
+.idea/uiDesigner.xml
+.idea/dbnavigator.xml
+
+# Gradle project settings
+.idea/gradle.xml
+.idea/libraries
+
+# IntelliJ plugin data
+.idea/shelf
+
+# IntelliJ Editor History
+.idea/editorHistory.xml
+
+# Compiled output
+out/
+
+# JNA and JNI library files
+/lib/native/
+/lib64/native/
+
+# Mac specific
+.DS_Store
+
+# Windows specific
+Thumbs.db
+
+### Kotlin ###
+# Compiled class files
 *.class
+
+# Log files
+*.log
+
+# Package files
 *.jar
 *.war
 *.ear
 *.zip
 *.tar.gz
-*.log
-*.hprof
+*.rar
 
-# Gradle
-.gradle/
-build/
-!gradle/wrapper/gradle-wrapper.jar
-!gradle/wrapper/gradle-wrapper.properties
-
-# Ignore IDE outputs in source folders
-!**/src/main/**/build/
-!**/src/test/**/build/
-
-# IntelliJ IDEA
-.idea/
-*.iws
-*.iml
-*.ipr
-out/
-*.out
-*.swp
-*.swo
-.idea/**
-
-# IntelliJ cache
-.idea/modules.xml
-.idea/jarRepositories.xml
-.idea/compiler.xml
-.idea/libraries/
-
-# VS Code
-.vscode/
-
-# OS junk
-.DS_Store
-Thumbs.db
-
-# Logs
-*.log
-
-# Kotlin
+# Kotlin IDE plugin
 .kotlin/
 
-# Eclipse
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings/
-.springBeans
-.sts4-cache
-bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
+# Java Heap dump
+*.hprof
 
-# NetBeans
-nbproject/private/
-nbbuild/
-dist/
-nbdist/
-.nb-gradle/
-
-# Test results
-test-results/
-test-output/
-
-# Environment & credentials
-.env
-*.env
-*.key
-*.crt
-*.pem
-
-# Coroutine debugging
-*.trace
-
-# JetBrains specific
-.idea/.idea_modules/
-.idea/workspace.xml
-.idea/tasks.xml
-
-# Android (if relevant)
-*.apk
-*.ap_
-
-# Backup & temporary files
+# Temporary files
 *~
 *.tmp
 *.bak
-
-# Kotlin compile caches
-.kotlinc/

@@ -1,1 +1,5 @@
 package utils
+
+class CoroutineUtils(){
+
+}

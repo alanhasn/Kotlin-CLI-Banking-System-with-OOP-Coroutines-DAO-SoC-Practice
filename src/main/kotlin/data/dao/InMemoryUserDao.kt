@@ -7,10 +7,11 @@ class InMemoryUserDao: UserDao {
     val users = mutableListOf<User>()
     private var nextId=1 // for create new copy of the User object with next ID
 
-    override fun register(user: User): Boolean {
-        if (users.any{it.name == user.name}) return false // if user already exist return false
-        users.add(user.copy(id=nextId++)) // create copy from user object with unique ID
-        return true
+    override fun register(user: User): User? {
+        if (users.any{it.name == user.name}) return null // if user already exist return false
+        val newUser = user.copy(id=nextId++)
+        users.add(newUser) // create copy from user object with unique ID
+        return newUser
     }
 
     override fun login(username: String, password: String): User?{
